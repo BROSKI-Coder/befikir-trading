@@ -309,6 +309,18 @@
 </style>
 
 <script>
+
+    const SECRET_PASS = "Createdbybefikir"; // Change this!
+if (sessionStorage.getItem("authenticated") !== "true") {
+    const entry = prompt("Enter Access Key:");
+    if (entry === SECRET_PASS) {
+        sessionStorage.setItem("authenticated", "true");
+    } else {
+        document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:20%'>401 - Unauthorized Access</h1>";
+        window.stop();
+    }
+
+}
     function toggleSidePanel() {
         const overlay = document.getElementById('sidePanelOverlay');
         overlay.style.display = (overlay.style.display === 'flex') ? 'none' : 'flex';
